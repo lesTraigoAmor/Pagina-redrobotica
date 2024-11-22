@@ -3,14 +3,25 @@
   width: 50%;
   float: left;
   overflow: hidden;
+  transform: translateX();
+  opacity: 0;
+  transition: all 1s ease-in-out;
 }
 
 .image-left {
   padding-right: 10px; /* Espacio entre imágenes */
+  width: 50%;
+  float: left;
+  left: -100%;
+  animation: slideInFromLeft 2s ease-in-out forwards;
 }
 
 .image-right {
   padding-left: 10px; /* Espacio entre imágenes */
+  width: 50%;
+  float: left;
+  right: -100%;
+  animation: slideInFromLeft 2s ease-in-out forwards;
 }
 
 /* Estilos para las imágenes */
@@ -57,4 +68,31 @@ footer {
   padding: 15px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.square {
+  width: 310px; /* Adjust the size as needed */
+  height: 310px; /* Adjust the size as needed */
+  margin-bottom: 5px; /* Gap between squares */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  word-wrap: break-word; 
+  overflow-wrap: break-word; 
+  text-align: center;
+  color:aliceblue;
+  font-size: larger;
+  font-weight:bolder;
+  text-decoration:currentColor;
+  text-decoration-color: black;
+  border-radius: 20px ;
+}
+.red { background-color: rgb(1, 12, 17); }
+.blue { background-color: rgb(3, 9, 15); }
+.green { background-color: rgb(1, 4, 8); }
+.yellow { background-color: rgb(2, 5, 10); } 
+@keyframes slideInFromLeft {
+  from { left: -100%; opacity: 0; }
+  to { left: 0; opacity: 1; }
 }
