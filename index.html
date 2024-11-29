@@ -4,8 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Red Argentina de Robótica</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="script.js">
+
+    <style>
+      .marker {
+        background-image: url('https://docs.mapbox.com/demos/custom-markers-gl-js/mapbox-icon.png');
+        background-size: cover;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      .mapboxgl-popup {
+        max-width:fit-content;
+
+      }
+
+      .mapboxgl-popup-content {
+        text-align: center;
+        font-family: 'Open Sans', sans-serif;
+        text-size-adjust:inherit;
+      }
+    </style>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg mx-auto p-2" style="width: 500px;">
@@ -99,7 +124,7 @@
         </div>
         <div class="col-md-6" style="padding-left: 26%; padding-top: 2%;">
             <div class="square yellow">
-              <i class='fas fa-bezier-curve' style='font-size:62px;color: rgb(255, 255, 255);'>21 </i><br><p style="font-size:x-large;">Grupos en la Red</p><br>
+              <i class='fas fa-bezier-curve' style='font-size:62px;color: rgb(255, 255, 255);'>20 </i><br><p style="font-size:x-large;">Grupos en la Red</p><br>
             </div>
             <div class="square yellow">
               <i class='fas fa-bezier-curve' style='font-size:62px;color: rgb(255, 255, 255);'>24 </i><br><p style="font-size:x-large;">Años desde el primer encuentro</p><br>
@@ -112,8 +137,14 @@
             </div>
         </div>
     </div>
-    <br> <br>
+    <br>
 </div>
+
+<div class="container">
+<div id='map' style='width: 100%; height: 500px; border-radius: 20px;'></div>
+</div>
+
+ <br>
   
   <footer>
     <div class="footer-grid">
@@ -130,5 +161,270 @@
 
       
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
+      <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoicmVkYXJnZW50aW5hZGVyb2JvdGljYSIsImEiOiJjbTQwN3RndnYwZGhhMmpwdHY1dHJqYzViIn0.FW4pr3edPAwLBbMdB8lA8g';
+        const geojson = {
+            type: 'FeatureCollection',
+            features: [
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-58.401199, -34.641029]
+                },
+                properties: {
+                  title: 'Centro de Inteligencia Computacional, Laboratorio de Robótica. ITBA',
+                  description: 'CABA, Buenos Aires'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-64.193407, -31.442256]
+                },
+                properties: {
+                  title: 'Centro de Investigación en Informática para la Ingeniería. UTN, FRC',
+                  description: 'Córdoba, Córdoba'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-71.414147, -41.113727]
+                },
+                properties: {
+                  title: 'División de Robótica y Automatización CAREM. Centro Atómico Bariloche - Instituto Balseiro',
+                  description: 'San Carlos de Bariloche, Rio Negro'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-68.056481, -38.940961]
+                },
+                properties: {
+                  title: 'Grupo de Investigación en Vehículos y Sistemas Inteligentes. Facultad de Ingeniería, Universidad Nacional del Comahue',
+                  description: 'Neuquén, Neuquén'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-68.05317646069601, -38.93967830699712]
+                },
+                properties: {
+                  title: 'Grupo de Investigación en Lenguajes e Inteligencia Artificial. Facultad de Informática, Universidad Nacional del Comahue',
+                  description: 'Neuquén, Neuquén'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-58.375589487548154, -34.63675739137349]
+                },
+                properties: {
+                  title: 'Grupo de Investigación en Robótica Autónoma. Universidad Nacional Abierta Iberoamericana',
+                  description: 'CABA, Buenos Aires'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-60.62272757143288, -32.96951912093117]
+                },
+                properties: {
+                  title: 'Grupo de Simulación y Control. CIFASIS, Universidad Nacional de Rosario - CONICET',
+                  description: 'CABA, Buenos Aires'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-58.46840911705652, -34.659381409323494]
+                },
+                properties: {
+                  title: 'Grupo de Inteligencia Artificial y Robótica. Universidad Tecnológica Nacional Facultad Regional Buenos Aires',
+                  description: 'CABA, Buenos Aires'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-58.277518770022766, -34.70626522807219]
+                },
+                properties: {
+                  title: 'Grupo de Sistemas Autonómos basados en Visión e Inteligencia Artificial. Universidad Nacional de Quilmes',
+                  description: 'Quilmes GBA, Buenos Aires'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-63.770390039286745, -35.66792083239832]
+                },
+                properties: {
+                  title: 'Grupo de Robótica Aplicada. Facultad de Ingenieria, Universidad Nacional de La Pampa',
+                  description: 'Gral. Pico, La Pampa'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-58.95349000744871, -34.176777377131515]
+                },
+                properties: {
+                  title: 'Grupo de Robótica. Facultad , Universidad Tecnológica Nacional Facultad Reginal Delta',
+                  description: 'Campana GBA, Buenos Aires'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-60.521152966396606, -31.832294010793117]
+                },
+                properties: {
+                  title: 'Grupo de Robótica del Centro de Ingeniería en Rehabilitación e Investigaciones Neuromusculares y Sensoriales. Facultad de Ingeniería, Universidad Nacional de Entre Ríos.',
+                  description: 'Oro Verde, Entre Rios'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-60.30134520912426, -36.91486473412005]
+                },
+                properties: {
+                  title: 'INTELYMEC - Investigación Tecnológica en Electricidad y Mecatrónica. Universidad Nacional del Centro de la Provincia de Buenos Aires, sede Olavarría',
+                  description: 'Olavarria, Buenos Aires'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-68.53836855550776, -31.53361331869988]
+                },
+                properties: {
+                  title: 'Instituto de Automática. Universidad Nacional de San Juan - CONICET',
+                  description: 'San Juan, San Juan'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-60.62831815095999, -32.95916401415883]
+                },
+                properties: {
+                  title: 'Laboratorio de Automatización y Control. Facultad de Ciencias Exactas, Ingeniería y Agrimensura; Universidad Nacional de Rosario',
+                  description: 'Rosario, Santa Fe'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-58.3678663028519, -34.617448643317346]
+                },
+                properties: {
+                  title: 'Laboratorio de Automática y Robótica. Facultad de Ingeniería, Universidad de Buenos Aires',
+                  description: 'Rosario, Santa Fe'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-58.439842662902585, -34.543786897902905]
+                },
+                properties: {
+                  title: 'Laboratorio de Robótica y Sistemas Embebidos. Instituto de Ciencias de la Computación, Universidad de Buenos Aires -CONICET ',
+                  description: 'CABA, Buenos Aires'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-62.270177062460455, -38.70150091484883]
+                },
+                properties: {
+                  title: 'Laboratorio de Control y Robótica (LCR). Instituto de Investigaciones en Ingeniería Eléctrica, Universidad Nacional del Sur CONICET',
+                  description: 'Bahia Blanca, Buenos Aires'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-58.527112524809105, -34.44641285642868]
+                },
+                properties: {
+                  title: 'Laboratorio de Inteligencia Artificial y Robótica (LINAR). Universidad de San Andrés ',
+                  description: 'Victoria GBA, Buenos Aires'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-68.83272808706504, -32.89360720238606]
+                },
+                properties: {
+                  title: 'Laboratorio de Robots Móviles y Manipuladores autónomos (LARMMA). Utn Facultad Regional Mendoza',
+                  description: 'Mendoza capital, Mendoza'
+                }
+              }
+              
+            ]
+        };
+        const map = new mapboxgl.Map({
+          container: 'map',
+          style: 'mapbox://styles/mapbox/streets-v12',
+          center: [-63.770390039286745, -35.66792083239832],
+          zoom: 3.5, // starting zoom 3.2/-39.84/-65.34/14.8/56
+          bearing: 14.8,
+          pitch: 0,
+        });
+
+        for (const feature of geojson.features) {
+
+        const el = document.createElement('div');
+        el.className = 'marker';
+
+        new mapboxgl.Marker().setLngLat(feature.geometry.coordinates).addTo(map);
+        
+        new mapboxgl.Marker()
+        .setLngLat(feature.geometry.coordinates)
+        .setPopup(
+        new mapboxgl.Popup({ offset: 25 })
+        .setHTML(
+        `<h5>${feature.properties.title}</h5><p>${feature.properties.description}</p>`
+          )
+        )
+        .addTo(map);
+        }
+
+        function animatePitch(newPitch) {
+         map.easeTo({
+         bearing: map.getBearing(), // Keep current bearing
+         pitch: newPitch, // New pitch value
+         duration: 3000 // Animation duration in milliseconds (adjust as needed)
+         });
+        }
+        // Example usage:
+        animatePitch(60); // Animate to 60 degrees pitch
+        </script>
+    </body>
 </html>
