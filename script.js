@@ -6,3 +6,4 @@ document.addEventListener('DOMContentLoaded', () => {
       menu.classList.toggle('active');
     });
   });
+
