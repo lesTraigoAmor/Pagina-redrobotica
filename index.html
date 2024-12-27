@@ -10,6 +10,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
     <link rel="script" href="script.js">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
     <style>
       .marker {
@@ -30,9 +33,17 @@
         font-family: 'Open Sans', sans-serif;
         text-size-adjust:inherit;
       }
+
+      #backcolorstart{
+        background-image: linear-gradient(to bottom right,
+         rgba(0, 149, 255, 0.5),
+         rgba(0, 255, 255, 0.8));
+      }
     </style>
 </head>
 <body>
+  <div id="backcolorstart">
+    <br>
   <nav class="navbar navbar-expand-lg mx-auto p-2" style="width: 500px;">
     <div class="container-fluid">
       <a class="navbar-brand" href="#"> <img src="rarlogo.png" alt="Bootstrap" width="30" height="30"> </a>
@@ -40,7 +51,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav poppins-bold">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#about">Sobre la RAR</a>
           </li>
@@ -69,21 +80,21 @@
   </nav>
   <br>
   <div class="container" style="width: 100%; overflow: hidden; height: auto;">
-    <div class="image-left"><img src="impulsandorar.png" alt=""></div>
+    <div class="image-left"><img src="Poppins-removebg-preview.png" alt=""></div>
     <div class="image-right"><img src="manipuladorinaut.png" alt=""></div>
   </div>
-  <div class="contenedor-principal">
-    <div class="centrado" id="about">
+  <div class="contenedor-principal poppins-regular" style="background-color: transparent;">
+    <div class="centrado" id="about" style="background-color: transparent; border-radius: 20px;">
       <p>Bienvenidos a la Red Nacional de Robótica, una iniciativa pionera que busca unir a los entusiastas y profesionales del campo de la robótica desde diferentes regiones de nuestro país. Nuestro objetivo es fomentar el desarrollo tecnológico, promover la innovación y facilitar el intercambio de ideas entre los miembros de nuestra comunidad.</p>
       <p>La robótica ha evolucionado significativamente en las últimas décadas, transformando industrias y cambióndonos la vida cotidiana. Desde sus humildes inicios hasta nuestros días, esta disciplina ha ido creciendo exponencialmente, abarcando campos como la programación, la electrónica, la mecánica y la inteligencia artificial.</p>
       <p>Nuestra red se propone ser un espacio donde los estudiantes, investigadores y profesionales puedan compartir conocimientos, colaborar en proyectos y mantenerse actualizados sobre las últimas tendencias en el mundo de la robótica.</p>
     </div>
   </div>
-
+  </div>
   <div class="container">
     <div class="row">
         <div class="col-md-6" style="overflow: visible;">
-          <p><i class='fas fa-bezier-curve' style='font-size:36px;color: rgb(0, 0, 0);'><h2>MISIÓN:</h2></i>
+          <p><i class='poppins-bold' style='font-size:36px;color: rgb(0, 0, 0);'><h2>Misión:</h2></i>
                 >Asegurar la <b>sustentabilidad</b> de la Red, y trabajar para lograr la Visión respetando sus Valores. <br>
                 >Promover, establecer y consolidar <b>vínculos</b> entre los grupos y personas que desarrollan actividad de investigación, desarrollo, docencia y transferencia de tecnologías en robótica, y tambien entre los grupos de investigación y desarrollo con el sector productivo y de servicios, en el país y en el exterior. <br>
                 >Promover y dar contuidad a las reuniones periódicas en la forma de <b>Congreso o Jornadas Argentinas de Robótica</b>, las cuales han sido una de las actividades más influyentes en la gesta de esta Red. <br>
@@ -95,7 +106,7 @@
                 >Difundir y <b>promover</b> la enseñanza de Robótica en todos los niveles de la educación.
                 </p>
 
-                <p><i class='fas fa-bezier-curve' style='font-size:36px;color: rgb(0, 0, 0);'><h2>VISIÓN:</h2></i>
+                <p><i class='poppins-bold' style='font-size:36px;color: rgb(0, 0, 0); ;'><h2>Visión:</h2></i>
                 >Que la Robótica se constituya como un área estratégica para el desarrollo tecnológico del país. <br>|
                 >Que la Red se consolide como referente nacional en la temática específica y como generador de impacto a nivel nacional en la academia, la industria y los servicios. <br>
                 >Que la Red alcance visibilidad internacional y consolide vinculaciones fructíferas con redes internacionales. <br>
@@ -104,7 +115,7 @@
                 >Que se disponga de habilidades para desarrollos tecnológicos con impacto a nivel nacional y competitivos a nivel internacional.
                 </p>
                 
-                <p><i class='fas fa-bezier-curve' style='font-size:36px;color: rgb(0, 0, 0);'><h2>VALORES:</h2></i>
+                <p><i class='poppins-bold' style='font-size:36px;color: rgb(0, 0, 0);'><h2>Valores:</h2></i>
                 ><b>Espíritu de pertenencia: </b>La red es un bien común intangible que debe ser sostenido en el tiempo y transmitido a las nuevas generaciones para asegurar su continuidad. <br>
                 ><b>Ética y Responsabilidad Social: </b>En todas las actividades y desarrollos aplicar y respetar principios y valores éticos, legales, sociales, y acuerdos de confidencialidad cuando sean planteados, evaluando el impacto social de los desarrollos y valorando sus aspectos positivos. <br>
                 ><b>Diversidad: </b> La diversidad en todo concepto enriquece y da valor a la Red.
@@ -145,30 +156,48 @@
 </div>
 <br>
 <br>
-<div style="background-color:cadetblue; border-radius: 20px;">
+<div id="backcolorstart" style="border-radius: 20px;">
   <div class="container" id="eventos">
     <br>
-    <h1 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ; text-align: center; font-size: 60px;" >Eventos Recientes </h1>
+    <h1 class="poppins-bold" style="text-align: center; font-size: 60px; color: white;" >Eventos Recientes </h1>
     <br>  
             <div class="slideshow-container">
 
               <!-- Full-width images with number and caption text -->
               <div class="mySlides">
-                <div class="numbertext">1 / 3</div>
-                <img src="Automatainaut.png" style="width:100%">
-                <div class="text">Caption Text</div>
+                <div class="numbertext">1 / 6</div>
+                <img src="jar1.jpg" style="width:100%">
+                <div class="text"><a href="https://jar.com.ar/">JAR2024</a></div>
               </div>
             
               <div class="mySlides">
-                <div class="numbertext">2 / 3</div>
-                <img src="manipuladorinaut.png" style="width:100%">
-                <div class="text">Caption Two</div>
+                <div class="numbertext">2 / 6</div>
+                <img src="jar2.jpg" style="width:100%">
+                <div class="text"><a href="https://jar.com.ar/">JAR2024</a> Ricardo Carelli reconocimiento</div>
               </div>
             
               <div class="mySlides">
-                <div class="numbertext">3 / 3</div>
-                <img src="rarlogo.png" style="width:100%">
-                <div class="text">Caption Three</div>
+                <div class="numbertext">3 / 6</div>
+                <img src="jar3.jpg" style="width:100%">
+                <div class="text"><a href="https://jar.com.ar/">JAR2024</a> Panel de Género</div>
+              </div>
+
+              <div class="mySlides">
+                <div class="numbertext">4 / 6</div>
+                <img src="jar4.jpg" style="width:100%">
+                <div class="text"><a href="https://jar.com.ar/">JAR2024</a> Día de la Industria</div>
+              </div>
+
+              <div class="mySlides">
+                <div class="numbertext">5 / 6</div>
+                <img src="jar5.jpg" style="width:100%">
+                <div class="text"><a href="https://jar.com.ar/">JAR2024</a></div>
+              </div>
+
+              <div class="mySlides">
+                <div class="numbertext">6 / 6</div>
+                <img src="jar6.jpg" style="width:100%">
+                <div class="text"><a href="https://jar.com.ar/">JAR2024</a></div>
               </div>
             
               <!-- Next and previous buttons -->
@@ -182,10 +211,21 @@
               <span class="dot" onclick="currentSlide(1)"></span>
               <span class="dot" onclick="currentSlide(2)"></span>
               <span class="dot" onclick="currentSlide(3)"></span>
+              <span class="dot" onclick="currentSlide(4)"></span>
+              <span class="dot" onclick="currentSlide(5)"></span>
+              <span class="dot" onclick="currentSlide(6)"></span>
             </div>
       </div>
 </div>
  <br>
+ <br>
+ <br>
+ <h1 class="poppins-bold" style="text-align: center; font-size: 60px; color: rgb(0, 0, 0);" >Instituciones Miembro</h1>
+ <br>
+ <br>
+<div class="image-container">
+  <div class="image-item"><img src="Diseño sin título (7).png" alt=""></div>
+</div>
   <br>
   <br>
   <footer>
@@ -440,8 +480,8 @@
           container: 'map',
           style: 'mapbox://styles/mapbox/streets-v12',
           center: [-63.770390039286745, -35.66792083239832],
-          zoom: 3.5, // starting zoom 3.2/-39.84/-65.34/14.8/56
-          bearing: 14.8,
+          zoom: 4.3, // starting zoom 3.2/-39.84/-65.34/14.8/56
+          bearing: 5,
           pitch: 0,
         });
 
@@ -463,14 +503,14 @@
         .addTo(map);
         };
 
-        function animatePitch(newPitch) {
-         map.easeTo({
-         bearing: map.getBearing(),
-         pitch: newPitch,
-         duration: 15000
-         });
-        }
-        animatePitch(60);
+        // function animatePitch(newPitch) {
+        //  map.easeTo({
+        //  bearing: map.getBearing(),
+        //  pitch: newPitch,
+        //  duration: 15000
+        //  });
+        // }
+        // animatePitch(60);
 
         let slideIndex = 1;
 showSlides(slideIndex);
@@ -498,6 +538,7 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " active";
 }
+
         </script>
 
     </body>
