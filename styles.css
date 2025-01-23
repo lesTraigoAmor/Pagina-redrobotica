@@ -103,7 +103,7 @@ footer {
   to { left: 0; opacity: 1; }
 }
 
-
+.carrusel{display: none;}
 .mySlides {display: none;}
 img {vertical-align: middle; border-radius: 20px;}
 
@@ -300,26 +300,6 @@ img {vertical-align: middle; border-radius: 20px;}
   font-weight: 900;
   font-style: italic;
 }
-
-/* .image-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 10px;
-  max-width: 1200px; 
-  margin: 0 auto;
-  padding-top: 50px; 
-  justify-content: center;
-  align-items: center;
-}
-
-.image-item {
-  width: 50%;
-  height: 50%;
-  object-fit:contain;
-  filter: grayscale(100%);
-  cursor: pointer;
-}
- */
 
  .image-container {
   width: 100%;

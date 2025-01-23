@@ -81,7 +81,58 @@
   <br>
   <div class="container" style="width: 100%; overflow: hidden; height: auto;">
     <div class="image-left"><img src="Poppins-removebg-preview.png" alt=""></div>
-    <div class="image-right"><img src="manipuladorinaut.png" alt=""></div>
+    <div class="image-right">
+      <div class="slideshow-container">
+        <!-- Full-width images with number and caption text -->
+        <div class="carrusel">
+          <div class="numbertext">1 / 6</div>
+          <img src="jar1.jpg" style="width:100%">
+          <div class="text"><a href="https://jar.com.ar/">JAR2024</a></div>
+        </div>
+      
+        <div class="carrusel">
+          <div class="numbertext">2 / 6</div>
+          <img src="jar2.jpg" style="width:100%">
+          <div class="text"><a href="https://jar.com.ar/">JAR2024</a> Ricardo Carelli reconocimiento</div>
+        </div>
+      
+        <div class="carrusel">
+          <div class="numbertext">3 / 6</div>
+          <img src="jar3.jpg" style="width:100%">
+          <div class="text"><a href="https://jar.com.ar/">JAR2024</a> Panel de Género</div>
+        </div>
+
+        <div class="carrusel">
+          <div class="numbertext">4 / 6</div>
+          <img src="jar4.jpg" style="width:100%">
+          <div class="text"><a href="https://jar.com.ar/">JAR2024</a> Día de la Industria</div>
+        </div>
+
+        <div class="carrusel">
+          <div class="numbertext">5 / 6</div>
+          <img src="jar5.jpg" style="width:100%">
+          <div class="text"><a href="https://jar.com.ar/">JAR2024</a></div>
+        </div>
+
+        <div class="carrusel">
+          <div class="numbertext">6 / 6</div>
+          <img src="jar6.jpg" style="width:100%">
+          <div class="text"><a href="https://jar.com.ar/">JAR2024</a></div>
+        </div>
+      
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="prevImage(-1)">&#10094;</a>
+        <a class="next" onclick="nextImage(1)">&#10095;</a>
+      </div>
+      <div style="text-align:center">
+        <span class="dot" onclick="showImage(1)"></span>
+        <span class="dot" onclick="showImage(2)"></span>
+        <span class="dot" onclick="showImage(3)"></span>
+        <span class="dot" onclick="showImage(4)"></span>
+        <span class="dot" onclick="showImage(5)"></span>
+        <span class="dot" onclick="showImage(6)"></span>
+      </div>
+    </div>
   </div>
   <div class="contenedor-principal poppins-regular" style="background-color: transparent;">
     <div class="centrado" id="about" style="background-color: transparent; border-radius: 20px;">
@@ -539,6 +590,72 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 }
 
+// let imageIndex = 1;
+// showImage(imageIndex);
+
+// function nextImage(n) {
+//     showImage(imageIndex += n);
+// }
+
+// function prevImage(n) {
+//     showImage(imageIndex -= n);
+// }
+
+// function showImage(index) {
+//     let i;
+//     let imageContainers = document.querySelectorAll(".carrusel");
+//     let dots = document.querySelectorAll(".dot");
+//     if (index > imageContainers.length) {index = 1}    
+//     if (index < 1) {index = imageContainers.length}
+//     for (i = 0; i < imageContainers.length; i++) {
+//         imageContainers[i].style.display = "none";  
+//     }
+//     for (i = 0; i < dots.length; i++) {
+//         dots[i].classList.remove("active");
+//     }
+//     imageContainers[index-1].style.display = "block";  
+//     dots[index-1].classList.add("active");
+// }
+
+function showImage(index) {
+    let i;
+    let imageContainers = document.querySelectorAll(".carrusel");
+    let dots = document.querySelectorAll(".dot");
+
+    if (index > imageContainers.length) {index = 1}    
+    if (index < 1) {index = imageContainers.length}
+    
+    for (i = 0; i < imageContainers.length; i++) {
+        imageContainers[i].style.display = "none";  
+    }
+    
+    for (i = 0; i < dots.length; i++) {
+        dots[i].classList.remove("active");
+    }
+    
+    imageContainers[index-1].style.display = "block";  
+    dots[index-1].classList.add("active");
+}
+
+// Function to move to next slide
+function nextImage() {
+    showImage(imageIndex += 1);
+}
+
+// Function to move to previous slide
+function prevImage() {
+    showImage(imageIndex -= 1);
+}
+
+// Initial setup
+let imageIndex = 1;
+
+// Show the first slide initially
+showImage(imageIndex);
+
+// Add event listeners to buttons
+document.getElementById("prevButton").addEventListener("click", prevImage);
+document.getElementById("nextButton").addEventListener("click", nextImage);
         </script>
 
     </body>
