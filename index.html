@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Red Argentina de Robótica</title>
+    <link rel="icon" type="image/x-icon" href="logorar.jpeg">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
@@ -36,7 +37,7 @@
 
       #backcolorstart{
         background-image: linear-gradient(to bottom right,
-         rgba(0, 149, 255, 0.5),
+         rgba(3, 17, 141, 0.672),
          rgba(0, 255, 255, 0.8));
       }
     </style>
@@ -86,20 +87,20 @@
         <!-- Full-width images with number and caption text -->
         <div class="carrusel">
           <div class="numbertext">1 / 6</div>
-          <img src="jar1.jpg" style="width:100%">
-          <div class="text"><a href="https://jar.com.ar/">JAR2024</a></div>
+          <img src="manipuladorinaut.png" style="width:100%">
+          <div class="text"><a href=""></a> Manipulador INAU</div>
         </div>
       
         <div class="carrusel">
           <div class="numbertext">2 / 6</div>
-          <img src="jar2.jpg" style="width:100%">
-          <div class="text"><a href="https://jar.com.ar/">JAR2024</a> Ricardo Carelli reconocimiento</div>
+          <img src="robotica-cuadrupeda-linar.jpg" style="width:100%">
+          <div class="text"><a href=""></a> Cuadrupedo LINAR</div>
         </div>
       
         <div class="carrusel">
           <div class="numbertext">3 / 6</div>
-          <img src="jar3.jpg" style="width:100%">
-          <div class="text"><a href="https://jar.com.ar/">JAR2024</a> Panel de Género</div>
+          <img src="2014-02-28_15-25-56_204.jpg" style="width:100%">
+          <div class="text"><a href="">ICTIOBOT</a></div>
         </div>
 
         <div class="carrusel">
@@ -116,8 +117,8 @@
 
         <div class="carrusel">
           <div class="numbertext">6 / 6</div>
-          <img src="jar6.jpg" style="width:100%">
-          <div class="text"><a href="https://jar.com.ar/">JAR2024</a></div>
+          <img src="el-laboratorio-de-la-udesa-desarrollo-un-auto-VYSBY4BTNVAFDOJ23I3WG25GPE.jpg" style="width:100%">
+          <div class="text"><a href=""></a> Autonomo UDESA</div>
         </div>
       
         <!-- Next and previous buttons -->
@@ -134,13 +135,13 @@
       </div>
     </div>
   </div>
-  <div class="contenedor-principal poppins-regular" style="background-color: transparent;">
+  <!-- <div class="contenedor-principal poppins-regular" style="background-color: transparent;">
     <div class="centrado" id="about" style="background-color: transparent; border-radius: 20px;">
       <p>Bienvenidos a la Red Nacional de Robótica, una iniciativa pionera que busca unir a los entusiastas y profesionales del campo de la robótica desde diferentes regiones de nuestro país. Nuestro objetivo es fomentar el desarrollo tecnológico, promover la innovación y facilitar el intercambio de ideas entre los miembros de nuestra comunidad.</p>
       <p>La robótica ha evolucionado significativamente en las últimas décadas, transformando industrias y cambióndonos la vida cotidiana. Desde sus humildes inicios hasta nuestros días, esta disciplina ha ido creciendo exponencialmente, abarcando campos como la programación, la electrónica, la mecánica y la inteligencia artificial.</p>
       <p>Nuestra red se propone ser un espacio donde los estudiantes, investigadores y profesionales puedan compartir conocimientos, colaborar en proyectos y mantenerse actualizados sobre las últimas tendencias en el mundo de la robótica.</p>
     </div>
-  </div>
+  </div> -->
   </div>
   <div class="container">
     <div class="row">
@@ -281,10 +282,10 @@
   <br>
   <footer>
     <div class="footer-grid" id="contacto">
-      <div class="column">Columna 1</div>
-      <div class="column">Columna 2</div>
-      <div class="column">Columna 3</div>
-      <div class="column">Columna 4</div>
+      <div class="column"></div>
+      <div class="column"></div>
+      <div class="column"></div>
+      <div class="column"></div>
     </div>
   </footer>
 
@@ -300,7 +301,7 @@
             });
           });
 
-        mapboxgl.accessToken = 'pk.eyJ1IjoicmVkYXJnZW50aW5hZGVyb2JvdGljYSIsImEiOiJjbTQwN3RndnYwZGhhMmpwdHY1dHJqYzViIn0.FW4pr3edPAwLBbMdB8lA8g';
+        mapboxgl.accessToken = 'pk.eyJ1IjoicmVkYXJnZW50aW5hZGVyb2JvdGljYSIsImEiOiJjbTljczNiMHowNWFlMmxvbmw1bmJxaDIwIn0.QXno5kUthBcGFN9q817mYw';
         const geojson = {
             type: 'FeatureCollection',
             features: [
@@ -532,8 +533,9 @@
           style: 'mapbox://styles/mapbox/streets-v12',
           center: [-63.770390039286745, -35.66792083239832],
           zoom: 4.3, // starting zoom 3.2/-39.84/-65.34/14.8/56
-          bearing: 5,
+          bearing: 1,
           pitch: 0,
+          
         });
 
         for (const feature of geojson.features) {
