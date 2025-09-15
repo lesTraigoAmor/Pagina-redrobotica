@@ -1,336 +1,286 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Red Argentina de Robótica</title>
-  <link rel="icon" type="image/x-icon" href="./assets/img/logos/logo-rar2.png">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
-  <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
-  <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="stylesheet" href="styles.css">
-  <link src="script.js">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
-  <script src="https://api.mapbox.com/mapbox-gl-js/v3.14.0/mapbox-gl.js"></script>
-  <link href="https://api.mapbox.com/mapbox-gl-js/v3.14.0/mapbox-gl.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Argentina de Robótica</title>
+    <link rel="icon" type="image/x-icon" href="logorar.jpeg">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="script" href="script.js">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <style>
+      .marker {
+        background-image: url('https://docs.mapbox.com/demos/custom-markers-gl-js/mapbox-icon.png');
+        background-size: cover;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      .mapboxgl-popup {
+        max-width:fit-content;
+
+      }
+
+      .mapboxgl-popup-content {
+        text-align: center;
+        font-family: 'Open Sans', sans-serif;
+        text-size-adjust:inherit;
+      }
+
+      #backcolorstart{
+        background-image: linear-gradient(to bottom right,
+         rgba(3, 17, 141, 0.672),
+         rgba(0, 255, 255, 0.8));
+      }
+    </style>
 </head>
-
 <body>
-
-  <header>
-    <nav class="navbar navbar-expand-md mx-auto p-2 d-flex align-items-center justify-items-center">
-
-      <div class="container-fluid">
-
-        <a class="navbar-brand" href="#"> <img src="./assets/img/logos/logo-rar2.png" alt="RAR" height="55"> </a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-
-          <ul class="navbar-nav poppins-bold">
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#about">Sobre la RAR</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Noticias</a>
-            </li>
-            <!-- <li class="nav-item">
-              <a class="nav-link" href="#">Contacto</a>
-            </li> -->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Eventos
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Realizados</a></li>
-                <li><a class="dropdown-item" href="#">Proximos</a></li>
-                <li><a class="dropdown-item" href="#"></a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contacto">Contacto</a>
-            </li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </nav>
-
-  </header>
-
-  <section id="hero" class="flex-column-reverse d-flex flex-md-row justify-content-center">
-    <h1>
-      Impulsando la <br>
-      Robótica en la <br>
-      Argentina.
-    </h1>
-
-    <div id="carousel-hero" class="carousel slide">
-
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carousel-hero" data-bs-slide-to="0" class="active" aria-current="true"
-          aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carousel-hero" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carousel-hero" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        <button type="button" data-bs-target="#carousel-hero" data-bs-slide-to="3" aria-label="Slide 4"></button>
-        <button type="button" data-bs-target="#carousel-hero" data-bs-slide-to="4" aria-label="Slide 4"></button>
-        <button type="button" data-bs-target="#carousel-hero" data-bs-slide-to="5" aria-label="Slide 5"></button>
-        <button type="button" data-bs-target="#carousel-hero" data-bs-slide-to="6" aria-label="Slide 6"></button>
-      </div>
-
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="./assets/img/carruseles/carr1-1.png" alt="Manipulador INAU">
-          <div class="carousel-caption d-none d-md-block">
-            <p>Manipulador INAU</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="./assets/img/carruseles/carr1-2.jpg" alt="Cuadrupedo LINAR">
-          <div class="carousel-caption d-none d-md-block">
-            <p>Cuadrupedo LINAR</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="./assets/img/carruseles/carr1-3.jpg" alt="ICTIOBOT">
-          <div class="carousel-caption d-none d-md-block">
-            <p>ICTIOBOT</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="./assets/img/carruseles/carr2-4.jpg" alt="JAR2024">
-          <div class="carousel-caption d-none d-md-block">
-            <p>JAR2024 - Día de la Industria</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="./assets/img/carruseles/carr2-5.jpg" alt="JAR2024">
-          <div class="carousel-caption d-none d-md-block">
-            <p>JAR2024 - Conferencia Magistral</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="./assets/img/carruseles/carr1-6.jpg" alt="Autonomo UDESA">
-          <div class="carousel-caption d-none d-md-block">
-            <p>Autonomo UDESA</p>
-          </div>
-        </div>
-      </div>
-
-      <button class="carousel-control-prev btn-carousel" type="button" data-bs-target="#carousel-hero"
-        data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
+  <div id="backcolorstart">
+    <br>
+  <nav class="navbar navbar-expand-lg mx-auto p-2" style="width: 500px;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"> <img src="rarlogo.png" alt="Bootstrap" width="30" height="30"> </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
       </button>
-
-      <button class="carousel-control-next btn-carousel" type="button" data-bs-target="#carousel-hero"
-        data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-
-    </div>
-
-  </section>
-
-  <section id="nuestra-vision">
-
-    <div class="container">
-
-      <div class="row">
-
-        <div class="col-md-8 col-12">
-
-          <div id="nuestra-vision-text">
-            <h2>Nuestra misión</h2>
-            <p>
-              Asegurar la <span>sustentabilidad</span> de la Red, y trabajar para lograr la Visión respetando sus
-              Valores. Promover, establecer y consolidar <span>vínculos</span> entre los grupos y personas que
-              desarrollan
-              actividad de investigación, desarrollo, docencia y transferencia de tecnologías en robótica, y tambien
-              entre los grupos
-              de investigación y desarrollo con el sector productivo y de servicios, en el país y en el exterior.
-              Promover y dar contuidad a las reuniones periódicas en la forma de <span>Congreso o Jornadas Argentinas de
-                Robótica</span>, las cuales han sido una de las actividades más influyentes en la gesta de esta Red.
-              Fomentar el desarrollo y consolidación de <span>grupos</span> de trabajo en Robótica, mediante una acción
-              de
-              comunicación y de intercambios. Favorecer el desarrollo de <span>proyectos</span> que involucren a
-              personas y grupos de diferentes
-              instituciones. Constituir el <span>soporte humano</span> para impulsar la realización de congresos,
-              jornadas, workshops,
-              seminarios, u otros eventos afines a la Red. Promover la <span>movilidad</span> de becarias y becarios,
-              docentes e investigadores, entre los grupos de, la Red,
-              buscando el fortalecimiento de los recursos humanos del país en el área.
-              <span>Visibilizar</span> entre las y los integrantes y ante la sociedad, los desarrollos, avances y
-              logros de los grupos dentro del área específica. Difundir y <span>promover</span> la enseñanza de Robótica
-              en todos los niveles de la educación.
-            </p>
-
-            <h2>Nuestra visión</h2>
-            <p>
-              Que la Robótica se constituya como un área estratégica para el desarrollo tecnológico del país.
-              Que la Red se consolide como referente nacional en la temática específica y como generador de impacto a
-              nivel nacional en la academia, la industria y los servicios.
-              Que la Red alcance visibilidad internacional y consolide vinculaciones fructíferas con redes
-              internacionales.
-              Que la Red sea el ámbito natural de consulta, debate y propuestas ante iniciativas que tengan relación con
-              las áreas temáticas de la Red.
-              Que exista una amplia comunidad nacional consolidada en el área y con fuertes lazos de cooperación, que
-              incluya tanto al sector académico como el productivo y de servicios.
-              Que se disponga de habilidades para desarrollos tecnológicos con impacto a nivel nacional y competitivos a
-              nivel internacional.
-            </p>
-
-            <h2>Nuestros valores</h2>
-            <ul>
-              <li>
-                <span>Espíritu de pertenencia: </span>La red es un bien común intangible que debe ser sostenido en el
-                tiempo y transmitido a las nuevas generaciones para asegurar su continuidad.
-              </li>
-              <li>
-                <span>Ética y Responsabilidad Social: </span>En todas las actividades y desarrollos aplicar y respetar
-                principios y
-                valores éticos, legales, sociales, y acuerdos de confidencialidad cuando sean planteados, evaluando el
-                impacto
-                social de los desarrollos y valorando sus aspectos positivos.
-              </li>
-              <li>
-                <span>Diversidad: </span> La diversidad en todo concepto enriquece y da valor a la Red.
-              </li>
-              <li>
-                <span>Colaboración: </span> Resaltar los principios básicos de colaboración buscando el bien común,
-                manteniendo
-                equilibrio de participación global en los distintos cargos, funciones y comisiones que se creen para el
-                mejor funcionamiento de la Red.
-              </li>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav poppins-bold">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#about">Sobre la RAR</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Noticias</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="#">Contacto</a>
+          </li> -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Eventos
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Realizados</a></li>
+              <li><a class="dropdown-item" href="#">Proximos</a></li>
+              <li><a class="dropdown-item" href="#"></a></li>
             </ul>
-          </div>
-
-        </div>
-
-        <div id="nuestra-vision-asside" class="container-fluid col-md-4 col-12">
-          <div>
-            <h3>20</h3>
-            <p>Grupos en la Red</p>
-          </div>
-          <hr>
-          <div>
-            <h3>24</h3>
-            <p>Años desde el primer encuentro</p>
-          </div>
-          <hr>
-          <div>
-            <h3>120+</h3>
-            <p>Académicos</p>
-          </div>
-          <hr>
-          <div>
-            <h3>#1</h3>
-            <p>Primera red Argentina de robótica</p>
-          </div>
-        </div>
-
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contacto">Contacto</a>
+          </li>
+        </ul>
       </div>
-
     </div>
+  </nav>
+  <br>
+  <div class="container" style="width: 100%; overflow: hidden; height: auto;">
+    <div class="image-left"><img src="Poppins-removebg-preview.png" alt=""></div>
+    <div class="image-right">
+      <div class="slideshow-container">
+        <!-- Full-width images with number and caption text -->
+        <div class="carrusel">
+          <div class="numbertext">1 / 6</div>
+          <img src="manipuladorinaut.png" style="width:100%">
+          <div class="text"><a href=""></a> Manipulador INAU</div>
+        </div>
+      
+        <div class="carrusel">
+          <div class="numbertext">2 / 6</div>
+          <img src="robotica-cuadrupeda-linar.jpg" style="width:100%">
+          <div class="text"><a href=""></a> Cuadrupedo LINAR</div>
+        </div>
+      
+        <div class="carrusel">
+          <div class="numbertext">3 / 6</div>
+          <img src="2014-02-28_15-25-56_204.jpg" style="width:100%">
+          <div class="text"><a href="">ICTIOBOT</a></div>
+        </div>
 
-  </section>
+        <div class="carrusel">
+          <div class="numbertext">4 / 6</div>
+          <img src="jar4.jpg" style="width:100%">
+          <div class="text"><a href="https://jar.com.ar/">JAR2024</a> Día de la Industria</div>
+        </div>
 
-  <div id='map'></div>
+        <div class="carrusel">
+          <div class="numbertext">5 / 6</div>
+          <img src="jar5.jpg" style="width:100%">
+          <div class="text"><a href="https://jar.com.ar/">JAR2024</a></div>
+        </div>
 
-  <section id="carr2">
-
-    <div id="carousel-2" class="carousel slide">
-
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carousel-2" data-bs-slide-to="0" class="active" aria-current="true"
-          aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carousel-2" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carousel-2" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        <button type="button" data-bs-target="#carousel-2" data-bs-slide-to="3" aria-label="Slide 4"></button>
-        <button type="button" data-bs-target="#carousel-2" data-bs-slide-to="4" aria-label="Slide 4"></button>
-        <button type="button" data-bs-target="#carousel-2" data-bs-slide-to="5" aria-label="Slide 5"></button>
-        <button type="button" data-bs-target="#carousel-2" data-bs-slide-to="6" aria-label="Slide 6"></button>
+        <div class="carrusel">
+          <div class="numbertext">6 / 6</div>
+          <img src="el-laboratorio-de-la-udesa-desarrollo-un-auto-VYSBY4BTNVAFDOJ23I3WG25GPE.jpg" style="width:100%">
+          <div class="text"><a href=""></a> Autonomo UDESA</div>
+        </div>
+      
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="prevImage(-1)">&#10094;</a>
+        <a class="next" onclick="nextImage(1)">&#10095;</a>
       </div>
-
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="./assets/img/carruseles/carr2-1.jpg" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="./assets/img/carruseles/carr2-2.jpg" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="./assets/img/carruseles/carr2-3.jpg" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="./assets/img/carruseles/carr2-4.jpg" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="./assets/img/carruseles/carr2-5.jpg" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="./assets/img/carruseles/carr2-6.jpg" alt="...">
-        </div>
+      <div style="text-align:center">
+        <span class="dot" onclick="showImage(1)"></span>
+        <span class="dot" onclick="showImage(2)"></span>
+        <span class="dot" onclick="showImage(3)"></span>
+        <span class="dot" onclick="showImage(4)"></span>
+        <span class="dot" onclick="showImage(5)"></span>
+        <span class="dot" onclick="showImage(6)"></span>
       </div>
-
-      <button class="carousel-control-prev" type="button" data-bs-target="#carousel-2" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-
-      <button class="carousel-control-next" type="button" data-bs-target="#carousel-2" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-
     </div>
-
-  </section>
-
-  <section id="seccion-miembros">
-    <h2>Instituciones Miembro</h2>
-    <div class="miembros-imgs">
-      <img src="./assets/img/logos/logo-utn-ba.jpg" alt="">
-      <img src="./assets/img/logos/logo-utn2.png" alt="">
-      <img src="./assets/img/logos/logo-bals.jpg" alt="">
-      <img src="./assets/img/logos/logo-ciii.png" alt="">
-      <img src="./assets/img/logos/logo-automatica.jpeg" alt="">
-      <img src="./assets/img/logos/logo-cnea.png" alt="">
-      <img src="./assets/img/logos/logo-comahue.png" alt="">
-      <img src="./assets/img/logos/logo-intelymec.png" alt="">
-      <img src="./assets/img/logos/logo-inti.jpg" alt="">
-      <img src="./assets/img/logos/logo-itba.png" alt="">
-      <img src="./assets/img/logos/logo-linar.png" alt="">
-      <img src="./assets/img/logos/logo-rar2.png" alt="">
-      <img class="img-bg-black" src="./assets/img/logos/logo-uai.png" alt="">
-      <img src="./assets/img/logos/logo-udesa-texto.png" alt="">
-      <img src="./assets/img/logos/logo-uner.png" alt="">
-      <img src="./assets/img/logos/logo-unicen-texto.png" alt="">
-      <img src="./assets/img/logos/logo-unlpam.png" alt="">
-      <img src="./assets/img/logos/logo-unq-texto.png" alt="">
-      <img src="./assets/img/logos/logo-unrc2.jpeg" alt="">
-      <img class="img-bg-black" src="./assets/img/logos/logo-uns.png" alt="">
-      <img src="./assets/img/logos/logo-fiuba.png" alt="">
+  </div>
+  <!-- <div class="contenedor-principal poppins-regular" style="background-color: transparent;">
+    <div class="centrado" id="about" style="background-color: transparent; border-radius: 20px;">
+      <p>Bienvenidos a la Red Nacional de Robótica, una iniciativa pionera que busca unir a los entusiastas y profesionales del campo de la robótica desde diferentes regiones de nuestro país. Nuestro objetivo es fomentar el desarrollo tecnológico, promover la innovación y facilitar el intercambio de ideas entre los miembros de nuestra comunidad.</p>
+      <p>La robótica ha evolucionado significativamente en las últimas décadas, transformando industrias y cambióndonos la vida cotidiana. Desde sus humildes inicios hasta nuestros días, esta disciplina ha ido creciendo exponencialmente, abarcando campos como la programación, la electrónica, la mecánica y la inteligencia artificial.</p>
+      <p>Nuestra red se propone ser un espacio donde los estudiantes, investigadores y profesionales puedan compartir conocimientos, colaborar en proyectos y mantenerse actualizados sobre las últimas tendencias en el mundo de la robótica.</p>
     </div>
-  </section>
+  </div> -->
+  </div>
+  <div class="container">
+    <div class="row">
+        <div class="col-md-6" style="overflow: visible;">
+          <p><i class='poppins-bold' style='font-size:36px;color: rgb(0, 0, 0);'><h2>Misión:</h2></i>
+                >Asegurar la <b>sustentabilidad</b> de la Red, y trabajar para lograr la Visión respetando sus Valores. <br>
+                >Promover, establecer y consolidar <b>vínculos</b> entre los grupos y personas que desarrollan actividad de investigación, desarrollo, docencia y transferencia de tecnologías en robótica, y tambien entre los grupos de investigación y desarrollo con el sector productivo y de servicios, en el país y en el exterior. <br>
+                >Promover y dar contuidad a las reuniones periódicas en la forma de <b>Congreso o Jornadas Argentinas de Robótica</b>, las cuales han sido una de las actividades más influyentes en la gesta de esta Red. <br>
+                >Fomentar el desarrollo y consolidación de <b>grupos</b> de trabajo en Robótica, mediante una acción de comunicación y de intercambios. <br>
+                >Favorecer el desarrollo de <b>proyectos</b> que involucren a personas y grupos de diferentes instituciones. <br>
+                >Constituir el <b>soporte humano</b> para impulsar la realización de congresos, jornadas, workshops, seminarios, u otros eventos afines a la Red. <br>
+                >Promover la <b>movilidad</b> de becarias y becarios, docentes e investigadores, entre los grupos de la Red, buscando el fortalecimiento de los recursos humanos del país en el área. <br>
+                ><b>Visibilizar</b> entre las y los integrantes y ante la sociedad, los desarrollos, avances y logros de los grupos dentro del área específica. <br>
+                >Difundir y <b>promover</b> la enseñanza de Robótica en todos los niveles de la educación.
+                </p>
 
+                <p><i class='poppins-bold' style='font-size:36px;color: rgb(0, 0, 0); ;'><h2>Visión:</h2></i>
+                >Que la Robótica se constituya como un área estratégica para el desarrollo tecnológico del país. <br>|
+                >Que la Red se consolide como referente nacional en la temática específica y como generador de impacto a nivel nacional en la academia, la industria y los servicios. <br>
+                >Que la Red alcance visibilidad internacional y consolide vinculaciones fructíferas con redes internacionales. <br>
+                >Que la Red sea el ámbito natural de consulta, debate y propuestas ante iniciativas que tengan relación con las áreas temáticas de la Red. <br>
+                >Que exista una amplia comunidad nacional consolidada en el área y con fuertes lazos de cooperación, que incluya tanto al sector académico como el productivo y de servicios. <br>
+                >Que se disponga de habilidades para desarrollos tecnológicos con impacto a nivel nacional y competitivos a nivel internacional.
+                </p>
+                
+                <p><i class='poppins-bold' style='font-size:36px;color: rgb(0, 0, 0);'><h2>Valores:</h2></i>
+                ><b>Espíritu de pertenencia: </b>La red es un bien común intangible que debe ser sostenido en el tiempo y transmitido a las nuevas generaciones para asegurar su continuidad. <br>
+                ><b>Ética y Responsabilidad Social: </b>En todas las actividades y desarrollos aplicar y respetar principios y valores éticos, legales, sociales, y acuerdos de confidencialidad cuando sean planteados, evaluando el impacto social de los desarrollos y valorando sus aspectos positivos. <br>
+                ><b>Diversidad: </b> La diversidad en todo concepto enriquece y da valor a la Red.
+                ><b>Colaboración: </b> Resaltar los principios básicos de colaboración buscando el bien común, manteniendo equilibrio de participación global en los distintos cargos, funciones y comisiones que se creen para el mejor funcionamiento de la Red. <br>
+                
+                </p>
+                
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="" alt="">
+                    </div>
+                    <div class="col-md-6" style="padding-left:20%;">
+                        <img src="" alt="">
+                    </div>
+                </div>
+        </div>
+        <div class="col-md-6" style="padding-left: 26%; padding-top: 2%;">
+            <div class="square yellow">
+              <i class='fas fa-bezier-curve' style='font-size:62px;color: rgb(255, 255, 255);'>20 </i><br><p style="font-size:x-large;">Grupos en la Red</p><br>
+            </div>
+            <div class="square yellow">
+              <i class='fas fa-bezier-curve' style='font-size:62px;color: rgb(255, 255, 255);'>24 </i><br><p style="font-size:x-large;">Años desde el primer encuentro</p><br>
+            </div>
+            <div class="square yellow">
+              <i class='fas fa-bezier-curve' style='font-size:62px;color: rgb(255, 255, 255);'>120+ </i><br><p style="font-size:x-large;">Académicos</p><br>
+            </div>
+            <div class="square yellow">
+              <i class='fas fa-bezier-curve' style='font-size:62px;color: rgb(255, 255, 255);'>#1</i><br><p style="font-size:x-large;">Primera red Argentina de robótica</p><br>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>
+
+<div class="container">
+<div id='map' style='width: 100%; height: 500px; border-radius: 20px;'></div>
+</div>
+<br>
+<br>
+<div id="backcolorstart" style="border-radius: 20px;">
+  <div class="container" id="eventos">
+    <br>
+    <h1 class="poppins-bold" style="text-align: center; font-size: 60px; color: white;" >Eventos Recientes </h1>
+    <br>  
+            <div class="slideshow-container">
+
+              <!-- Full-width images with number and caption text -->
+              <div class="mySlides">
+                <div class="numbertext">1 / 6</div>
+                <img src="jar1.jpg" style="width:100%">
+                <div class="text"><a href="https://jar.com.ar/">JAR2024</a></div>
+              </div>
+            
+              <div class="mySlides">
+                <div class="numbertext">2 / 6</div>
+                <img src="jar2.jpg" style="width:100%">
+                <div class="text"><a href="https://jar.com.ar/">JAR2024</a> Ricardo Carelli reconocimiento</div>
+              </div>
+            
+              <div class="mySlides">
+                <div class="numbertext">3 / 6</div>
+                <img src="jar3.jpg" style="width:100%">
+                <div class="text"><a href="https://jar.com.ar/">JAR2024</a> Panel de Género</div>
+              </div>
+
+              <div class="mySlides">
+                <div class="numbertext">4 / 6</div>
+                <img src="jar4.jpg" style="width:100%">
+                <div class="text"><a href="https://jar.com.ar/">JAR2024</a> Día de la Industria</div>
+              </div>
+
+              <div class="mySlides">
+                <div class="numbertext">5 / 6</div>
+                <img src="jar5.jpg" style="width:100%">
+                <div class="text"><a href="https://jar.com.ar/">JAR2024</a></div>
+              </div>
+
+              <div class="mySlides">
+                <div class="numbertext">6 / 6</div>
+                <img src="jar6.jpg" style="width:100%">
+                <div class="text"><a href="https://jar.com.ar/">JAR2024</a></div>
+              </div>
+            
+              <!-- Next and previous buttons -->
+              <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+              <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <br>
+            
+            <!-- The dots/circles -->
+            <div style="text-align:center">
+              <span class="dot" onclick="currentSlide(1)"></span>
+              <span class="dot" onclick="currentSlide(2)"></span>
+              <span class="dot" onclick="currentSlide(3)"></span>
+              <span class="dot" onclick="currentSlide(4)"></span>
+              <span class="dot" onclick="currentSlide(5)"></span>
+              <span class="dot" onclick="currentSlide(6)"></span>
+            </div>
+      </div>
+</div>
+ <br>
+ <br>
+ <br>
+ <h1 class="poppins-bold" style="text-align: center; font-size: 60px; color: rgb(0, 0, 0);" >Instituciones Miembro</h1>
+ <br>
+ <br>
+<div class="image-container">
+  <div class="image-item"><img src="Diseño sin título (7).png" alt=""></div>
+</div>
+  <br>
+  <br>
   <footer>
-    <p>futuro footer</p>
     <div class="footer-grid" id="contacto">
       <div class="column"></div>
       <div class="column"></div>
@@ -339,283 +289,376 @@
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-    </script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+      <script>
 
-  <script>
-    // 🔑 tu token
-    mapboxgl.accessToken = 'pk.eyJ1IjoicmVkYXJnZW50aW5hZGVyb2JvdGljYSIsImEiOiJjbTljczNiMHowNWFlMmxvbmw1bmJxaDIwIn0.QXno5kUthBcGFN9q817mYw';
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const menu = document.querySelector('.menu');
+          
+            menuToggle.addEventListener('click', () => {
+              menu.classList.toggle('active');
+            });
+          });
 
-    const map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/mapbox/dark-v11',
-      center: [-63.770390039286745, -35.66792083239832],
-      zoom: 4.5,
-      minZoom: 4.5,
-      maxZoom: 10,
-      bearing: 1,
-      pitch: 0,
-    });
+        mapboxgl.accessToken = 'pk.eyJ1IjoicmVkYXJnZW50aW5hZGVyb2JvdGljYSIsImEiOiJjbTljczNiMHowNWFlMmxvbmw1bmJxaDIwIn0.QXno5kUthBcGFN9q817mYw';
+        const geojson = {
+            type: 'FeatureCollection',
+            features: [
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-58.401199, -34.641029]
+                },
+                properties: {
+                  title: 'Centro de Inteligencia Computacional, Laboratorio de Robótica. ITBA',
+                  description: 'CABA, Buenos Aires'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-64.193407, -31.442256]
+                },
+                properties: {
+                  title: 'Centro de Investigación en Informática para la Ingeniería. UTN, FRC',
+                  description: 'Córdoba, Córdoba'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-71.414147, -41.113727]
+                },
+                properties: {
+                  title: 'División de Robótica y Automatización CAREM. Centro Atómico Bariloche - Instituto Balseiro',
+                  description: 'San Carlos de Bariloche, Rio Negro'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-68.056481, -38.940961]
+                },
+                properties: {
+                  title: 'Grupo de Investigación en Vehículos y Sistemas Inteligentes. Facultad de Ingeniería, Universidad Nacional del Comahue',
+                  description: 'Neuquén, Neuquén'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-68.05317646069601, -38.93967830699712]
+                },
+                properties: {
+                  title: 'Grupo de Investigación en Lenguajes e Inteligencia Artificial. Facultad de Informática, Universidad Nacional del Comahue',
+                  description: 'Neuquén, Neuquén'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-58.375589487548154, -34.63675739137349]
+                },
+                properties: {
+                  title: 'Grupo de Investigación en Robótica Autónoma. Universidad Nacional Abierta Iberoamericana',
+                  description: 'CABA, Buenos Aires'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-60.62272757143288, -32.96951912093117]
+                },
+                properties: {
+                  title: 'Grupo de Simulación y Control. CIFASIS, Universidad Nacional de Rosario - CONICET',
+                  description: 'CABA, Buenos Aires'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-58.46840911705652, -34.659381409323494]
+                },
+                properties: {
+                  title: 'Grupo de Inteligencia Artificial y Robótica. Universidad Tecnológica Nacional Facultad Regional Buenos Aires',
+                  description: 'CABA, Buenos Aires'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-58.277518770022766, -34.70626522807219]
+                },
+                properties: {
+                  title: 'Grupo de Sistemas Autonómos basados en Visión e Inteligencia Artificial. Universidad Nacional de Quilmes',
+                  description: 'Quilmes GBA, Buenos Aires'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-63.770390039286745, -35.66792083239832]
+                },
+                properties: {
+                  title: 'Grupo de Robótica Aplicada. Facultad de Ingenieria, Universidad Nacional de La Pampa',
+                  description: 'Gral. Pico, La Pampa'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-58.95349000744871, -34.176777377131515]
+                },
+                properties: {
+                  title: 'Grupo de Robótica. Facultad , Universidad Tecnológica Nacional Facultad Reginal Delta',
+                  description: 'Campana GBA, Buenos Aires'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-60.521152966396606, -31.832294010793117]
+                },
+                properties: {
+                  title: 'Grupo de Robótica del Centro de Ingeniería en Rehabilitación e Investigaciones Neuromusculares y Sensoriales. Facultad de Ingeniería, Universidad Nacional de Entre Ríos.',
+                  description: 'Oro Verde, Entre Rios'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-60.30134520912426, -36.91486473412005]
+                },
+                properties: {
+                  title: 'INTELYMEC - Investigación Tecnológica en Electricidad y Mecatrónica. Universidad Nacional del Centro de la Provincia de Buenos Aires, sede Olavarría',
+                  description: 'Olavarria, Buenos Aires'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-68.53836855550776, -31.53361331869988]
+                },
+                properties: {
+                  title: 'Instituto de Automática. Universidad Nacional de San Juan - CONICET',
+                  description: 'San Juan, San Juan'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-60.62831815095999, -32.95916401415883]
+                },
+                properties: {
+                  title: 'Laboratorio de Automatización y Control. Facultad de Ciencias Exactas, Ingeniería y Agrimensura; Universidad Nacional de Rosario',
+                  description: 'Rosario, Santa Fe'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-58.3678663028519, -34.617448643317346]
+                },
+                properties: {
+                  title: 'Laboratorio de Automática y Robótica. Facultad de Ingeniería, Universidad de Buenos Aires',
+                  description: 'Rosario, Santa Fe'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-58.439842662902585, -34.543786897902905]
+                },
+                properties: {
+                  title: 'Laboratorio de Robótica y Sistemas Embebidos. Instituto de Ciencias de la Computación, Universidad de Buenos Aires -CONICET ',
+                  description: 'CABA, Buenos Aires'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-62.270177062460455, -38.70150091484883]
+                },
+                properties: {
+                  title: 'Laboratorio de Control y Robótica (LCR). Instituto de Investigaciones en Ingeniería Eléctrica, Universidad Nacional del Sur CONICET',
+                  description: 'Bahia Blanca, Buenos Aires'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-58.527112524809105, -34.44641285642868]
+                },
+                properties: {
+                  title: 'Laboratorio de Inteligencia Artificial y Robótica (LINAR). Universidad de San Andrés ',
+                  description: 'Victoria GBA, Buenos Aires'
+                }
+              },
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [-68.83272808706504, -32.89360720238606]
+                },
+                properties: {
+                  title: 'Laboratorio de Robots Móviles y Manipuladores autónomos (LARMMA). Utn Facultad Regional Mendoza',
+                  description: 'Mendoza capital, Mendoza'
+                }
+              }
+              
+            ]
+        };
+        const map = new mapboxgl.Map({
+          container: 'map',
+          style: 'mapbox://styles/mapbox/streets-v12',
+          center: [-63.770390039286745, -35.66792083239832],
+          zoom: 4.3, // starting zoom 3.2/-39.84/-65.34/14.8/56
+          bearing: 1,
+          pitch: 0,
+          
+        });
 
-    // 📍 datos
-    const geojson = {
-      type: 'FeatureCollection',
-      features: [
-        {
-          type: 'Feature',
-          geometry: { type: 'Point', coordinates: [-58.401199, -34.641029] },
-          properties: {
-            title: 'Centro de Inteligencia Computacional, Laboratorio de Robótica. ITBA',
-            description: 'CABA, Buenos Aires'
-          }
-        },
-        {
-          type: 'Feature',
-          geometry: { type: 'Point', coordinates: [-64.193407, -31.442256] },
-          properties: {
-            title: 'Centro de Investigación en Informática para la Ingeniería. UTN, FRC',
-            description: 'Córdoba, Córdoba'
-          }
-        },
-        {
-          type: 'Feature',
-          geometry: {
-            type: 'Point',
-            coordinates: [-58.401199, -34.641029]
-          },
-          properties: {
-            title: 'Centro de Inteligencia Computacional, Laboratorio de Robótica. ITBA',
-            description: 'CABA, Buenos Aires'
-          }
-        },
-        {
-          type: 'Feature',
-          geometry: {
-            type: 'Point',
-            coordinates: [-64.193407, -31.442256]
-          },
-          properties: {
-            title: 'Centro de Investigación en Informática para la Ingeniería. UTN, FRC',
-            description: 'Córdoba, Córdoba'
-          }
-        },
-        {
-          type: 'Feature',
-          geometry: {
-            type: 'Point',
-            coordinates: [-71.414147, -41.113727]
-          },
-          properties: {
-            title: 'División de Robótica y Automatización CAREM. Centro Atómico Bariloche - Instituto Balseiro',
-            description: 'San Carlos de Bariloche, Rio Negro'
-          }
-        },
-        {
-          type: 'Feature',
-          geometry: {
-            type: 'Point',
-            coordinates: [-68.056481, -38.940961]
-          },
-          properties: {
-            title: 'Grupo de Investigación en Vehículos y Sistemas Inteligentes. Facultad de Ingeniería, Universidad Nacional del Comahue',
-            description: 'Neuquén, Neuquén'
-          }
-        },
-        {
-          type: 'Feature',
-          geometry: {
-            type: 'Point',
-            coordinates: [-68.05317646069601, -38.93967830699712]
-          },
-          properties: {
-            title: 'Grupo de Investigación en Lenguajes e Inteligencia Artificial. Facultad de Informática, Universidad Nacional del Comahue',
-            description: 'Neuquén, Neuquén'
-          }
-        },
-        {
-          type: 'Feature',
-          geometry: {
-            type: 'Point',
-            coordinates: [-58.375589487548154, -34.63675739137349]
-          },
-          properties: {
-            title: 'Grupo de Investigación en Robótica Autónoma. Universidad Nacional Abierta Iberoamericana',
-            description: 'CABA, Buenos Aires'
-          }
-        },
-        {
-          type: 'Feature',
-          geometry: {
-            type: 'Point',
-            coordinates: [-60.62272757143288, -32.96951912093117]
-          },
-          properties: {
-            title: 'Grupo de Simulación y Control. CIFASIS, Universidad Nacional de Rosario - CONICET',
-            description: 'CABA, Buenos Aires'
-          }
-        },
-        {
-          type: 'Feature',
-          geometry: {
-            type: 'Point',
-            coordinates: [-58.46840911705652, -34.659381409323494]
-          },
-          properties: {
-            title: 'Grupo de Inteligencia Artificial y Robótica. Universidad Tecnológica Nacional Facultad Regional Buenos Aires',
-            description: 'CABA, Buenos Aires'
-          }
-        },
-        {
-          type: 'Feature',
-          geometry: {
-            type: 'Point',
-            coordinates: [-58.277518770022766, -34.70626522807219]
-          },
-          properties: {
-            title: 'Grupo de Sistemas Autonómos basados en Visión e Inteligencia Artificial. Universidad Nacional de Quilmes',
-            description: 'Quilmes GBA, Buenos Aires'
-          }
-        },
-        {
-          type: 'Feature',
-          geometry: {
-            type: 'Point',
-            coordinates: [-63.770390039286745, -35.66792083239832]
-          },
-          properties: {
-            title: 'Grupo de Robótica Aplicada. Facultad de Ingenieria, Universidad Nacional de La Pampa',
-            description: 'Gral. Pico, La Pampa'
-          }
-        },
-        {
-          type: 'Feature',
-          geometry: {
-            type: 'Point',
-            coordinates: [-58.95349000744871, -34.176777377131515]
-          },
-          properties: {
-            title: 'Grupo de Robótica. Facultad , Universidad Tecnológica Nacional Facultad Reginal Delta',
-            description: 'Campana GBA, Buenos Aires'
-          }
-        },
-        {
-          type: 'Feature',
-          geometry: {
-            type: 'Point',
-            coordinates: [-60.521152966396606, -31.832294010793117]
-          },
-          properties: {
-            title: 'Grupo de Robótica del Centro de Ingeniería en Rehabilitación e Investigaciones Neuromusculares y Sensoriales. Facultad de Ingeniería, Universidad Nacional de Entre Ríos.',
-            description: 'Oro Verde, Entre Rios'
-          }
-        },
-        {
-          type: 'Feature',
-          geometry: {
-            type: 'Point',
-            coordinates: [-60.30134520912426, -36.91486473412005]
-          },
-          properties: {
-            title: 'INTELYMEC - Investigación Tecnológica en Electricidad y Mecatrónica. Universidad Nacional del Centro de la Provincia de Buenos Aires, sede Olavarría',
-            description: 'Olavarria, Buenos Aires'
-          }
-        },
-        {
-          type: 'Feature',
-          geometry: {
-            type: 'Point',
-            coordinates: [-68.53836855550776, -31.53361331869988]
-          },
-          properties: {
-            title: 'Instituto de Automática. Universidad Nacional de San Juan - CONICET',
-            description: 'San Juan, San Juan'
-          }
-        },
-        {
-          type: 'Feature',
-          geometry: {
-            type: 'Point',
-            coordinates: [-60.62831815095999, -32.95916401415883]
-          },
-          properties: {
-            title: 'Laboratorio de Automatización y Control. Facultad de Ciencias Exactas, Ingeniería y Agrimensura; Universidad Nacional de Rosario',
-            description: 'Rosario, Santa Fe'
-          }
-        },
-        {
-          type: 'Feature',
-          geometry: {
-            type: 'Point',
-            coordinates: [-58.3678663028519, -34.617448643317346]
-          },
-          properties: {
-            title: 'Laboratorio de Automática y Robótica. Facultad de Ingeniería, Universidad de Buenos Aires',
-            description: 'Rosario, Santa Fe'
-          }
-        },
-        {
-          type: 'Feature',
-          geometry: {
-            type: 'Point',
-            coordinates: [-58.439842662902585, -34.543786897902905]
-          },
-          properties: {
-            title: 'Laboratorio de Robótica y Sistemas Embebidos. Instituto de Ciencias de la Computación, Universidad de Buenos Aires -CONICET ',
-            description: 'CABA, Buenos Aires'
-          }
-        },
-        {
-          type: 'Feature',
-          geometry: {
-            type: 'Point',
-            coordinates: [-62.270177062460455, -38.70150091484883]
-          },
-          properties: {
-            title: 'Laboratorio de Control y Robótica (LCR). Instituto de Investigaciones en Ingeniería Eléctrica, Universidad Nacional del Sur CONICET',
-            description: 'Bahia Blanca, Buenos Aires'
-          }
-        },
-        {
-          type: 'Feature',
-          geometry: {
-            type: 'Point',
-            coordinates: [-58.527112524809105, -34.44641285642868]
-          },
-          properties: {
-            title: 'Laboratorio de Inteligencia Artificial y Robótica (LINAR). Universidad de San Andrés ',
-            description: 'Victoria GBA, Buenos Aires'
-          }
-        },
-        {
-          type: 'Feature',
-          geometry: {
-            type: 'Point',
-            coordinates: [-68.83272808706504, -32.89360720238606]
-          },
-          properties: {
-            title: 'Laboratorio de Robots Móviles y Manipuladores autónomos (LARMMA). Utn Facultad Regional Mendoza',
-            description: 'Mendoza capital, Mendoza'
-          }
-        }
-      ]
-    };
+        for (const feature of geojson.features) {
 
-    for (const feature of geojson.features) {
-      const el = document.createElement('div');
-      el.className = 'marker';
-      el.style.backgroundImage = 'url("./assets/img/logos/logo-rar2.png")';
+        const el = document.createElement('div');
+        el.className = 'marker';
 
-      new mapboxgl.Marker(el)
+        new mapboxgl.Marker().setLngLat(feature.geometry.coordinates).addTo(map);
+        
+        new mapboxgl.Marker()
         .setLngLat(feature.geometry.coordinates)
         .setPopup(
-          new mapboxgl.Popup({ offset: 25, className: 'map-popups' })
-            .setHTML(`<h5>${feature.properties.title}</h5><p>${feature.properties.description}</p>`)
+        new mapboxgl.Popup({ offset: 25 })
+        .setHTML(
+        `<h5>${feature.properties.title}</h5><p>${feature.properties.description}</p>`
+          )
         )
         .addTo(map);
+        };
+
+        // function animatePitch(newPitch) {
+        //  map.easeTo({
+        //  bearing: map.getBearing(),
+        //  pitch: newPitch,
+        //  duration: 15000
+        //  });
+        // }
+        // animatePitch(60);
+
+        let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+
+// let imageIndex = 1;
+// showImage(imageIndex);
+
+// function nextImage(n) {
+//     showImage(imageIndex += n);
+// }
+
+// function prevImage(n) {
+//     showImage(imageIndex -= n);
+// }
+
+// function showImage(index) {
+//     let i;
+//     let imageContainers = document.querySelectorAll(".carrusel");
+//     let dots = document.querySelectorAll(".dot");
+//     if (index > imageContainers.length) {index = 1}    
+//     if (index < 1) {index = imageContainers.length}
+//     for (i = 0; i < imageContainers.length; i++) {
+//         imageContainers[i].style.display = "none";  
+//     }
+//     for (i = 0; i < dots.length; i++) {
+//         dots[i].classList.remove("active");
+//     }
+//     imageContainers[index-1].style.display = "block";  
+//     dots[index-1].classList.add("active");
+// }
+
+function showImage(index) {
+    let i;
+    let imageContainers = document.querySelectorAll(".carrusel");
+    let dots = document.querySelectorAll(".dot");
+
+    if (index > imageContainers.length) {index = 1}    
+    if (index < 1) {index = imageContainers.length}
+    
+    for (i = 0; i < imageContainers.length; i++) {
+        imageContainers[i].style.display = "none";  
     }
+    
+    for (i = 0; i < dots.length; i++) {
+        dots[i].classList.remove("active");
+    }
+    
+    imageContainers[index-1].style.display = "block";  
+    dots[index-1].classList.add("active");
+}
 
-  </script>
-</body>
+// Function to move to next slide
+function nextImage() {
+    showImage(imageIndex += 1);
+}
 
+// Function to move to previous slide
+function prevImage() {
+    showImage(imageIndex -= 1);
+}
+
+// Initial setup
+let imageIndex = 1;
+
+// Show the first slide initially
+showImage(imageIndex);
+
+// Add event listeners to buttons
+document.getElementById("prevButton").addEventListener("click", prevImage);
+document.getElementById("nextButton").addEventListener("click", nextImage);
+        </script>
+
+    </body>
 </html>
