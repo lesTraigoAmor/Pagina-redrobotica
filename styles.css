@@ -17,10 +17,13 @@ header {
 nav{
   padding: 0 !important;
   width: 100%;
-  height: 60px;
   background-color: #fff;
   border-radius: 18px;
   font-weight: bold;
+}
+
+.navbar-brand img{
+  height: 55px;
 }
 
 .nav-link{
@@ -32,21 +35,22 @@ nav{
   color: #00bcd4;
 }
 
-.navbar-brand img{
-  height: 50px;
+.navbar-collapse{
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.navbar-toggler:focus{
+  box-shadow:inset 0 0 0 2px #00bcd4;
 }
 
 #navbarNavDropdown{
   margin-top: 10px;
   width: 100%;
   background-color: #fff;
-  padding: .5rem 1.5rem;
+  padding: 0 1.2rem;
+  padding-bottom: 1.2rem;
   border-radius: 16px;
-}
-
-#navbarNavDropdown .dropdown-menu a:hover{
-  background-color: #00bcd4;
-  color: #fff;
 }
 
 #hero{
@@ -54,8 +58,8 @@ nav{
   padding-bottom: 4rem;
   background-image: linear-gradient(
     to bottom right,
-    rgba(34, 48, 170, 0.747),
-    rgba(8, 161, 161, 0.8)
+    rgb(0, 26, 255),
+    rgb(111, 226, 255)
   );
   overflow: hidden;
 }
@@ -124,6 +128,7 @@ nav{
 
 
 #nuestra-vision-text p{
+  font-size: 1rem;
   margin-top: 1rem;
   margin-bottom: 2rem;
 }
@@ -140,6 +145,7 @@ nav{
 }
 
 #nuestra-vision-text li{
+  font-size: 1rem;
   list-style: none;
   padding-bottom: 1rem;
   margin: 0;
@@ -181,21 +187,41 @@ nav{
   line-height: 1;
 }
 
-#carr{
-  padding: 0 1.5rem;
+#grupos{
+  padding: 0 1.8rem;
+  margin-top: 8rem;
+  text-align: center;
+}
+#grupos h2{
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+#eventos{
+    background-image: linear-gradient(
+    to bottom right,
+    rgba(34, 48, 170, 0.747),
+    rgba(8, 161, 161, 0.8)
+  );
+  display: flex;
+  flex-direction: column;
+  gap: 10rem;
+  padding: 5rem 1.5rem;
   margin: auto;
   margin-bottom: 6rem;
   margin-top: 12rem;
+  color: #fff;
 }
 
-#carr h2{
+#eventos h2{
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 2rem;
   text-align: center;
 }
 
-#carr img{
+#eventos img{
   width: 100%;
   height: 300px;
   object-fit: cover;
@@ -236,10 +262,24 @@ nav{
 }
 
 footer{
+  display: flex;
+  flex-direction: column;
   height: fit-content;
   background-color: #080808;
   color: #fff;
   padding: 2rem 0;
+}
+
+footer .footer-container{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+footer img{
+  height: 80px;
 }
 
 footer ul{
@@ -251,6 +291,11 @@ footer ul li{
   list-style: none;
 }
 
+footer .footer-links{
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
 
 footer .footer-links a{
   text-decoration: none;
@@ -262,6 +307,11 @@ footer .footer-links a:hover{
   text-decoration: underline;
 }
 
+footer .footer-redes{
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
 
 footer .footer-redes ul{
   display: flex;
@@ -278,20 +328,28 @@ footer .footer-redes li:hover{
   background-color: #008c9e;
 }
 
+footer .footer-logo-rar{
+  background-color: none;
+}
+
+footer .footer-logo-rar:hover{
+  background-color: none;
+}
+
 footer .copy{
   text-align: center;
   margin: auto;
   margin-top: 2rem;
   font-size: 0.875rem;
   color: gray;
+  padding: 0 1.8rem;
 }
 
 
-  
 /* ESTILOS MAPBOX */
 
 #map {
-  margin: 6rem auto;
+  margin: auto;
   border-radius: 16px;
   width: 90%;
   height: 400px;
@@ -351,10 +409,19 @@ footer .copy{
     width: 550px;
   }
 
+  .div-nav{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+  
   #navbarNavDropdown{
-    margin-top: 0;
-    height: 50px;
-}
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+  }
 
   #hero{
     gap: 5rem;
@@ -374,18 +441,22 @@ footer .copy{
   
 
   #carousel-hero{
-    width: 600px;
+    position: relative;
+    top: -7rem;
+    right: 0;
+    width: 700px;
     height: 90vh;
     overflow: hidden;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
     border-bottom-left-radius: 16px;
     border-bottom-right-radius: 16px;
   }
 
   #carousel-hero img{
-    width: 600px;
+    width: 700px;
     overflow: hidden;
     height: 90vh;
-    aspect-ratio: 16/9;
     object-fit: cover;
     border-bottom-left-radius: 16px;
     border-bottom-right-radius: 16px;
@@ -406,22 +477,41 @@ footer .copy{
     text-align: left;
   }
 
-  #carr{
-    width: 90%;
+  #eventos{ 
+    justify-content: center;
+    flex-direction: row;
   }
 
-  #carr img{
+   .carousel {
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    border-radius: 16px;
+  }
+
+  #eventos img{
     width: 100%;
     height: 500px;
     object-fit: cover;
     border-radius: 16px;
   }
 
+  footer{
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 4rem;
+  }
+
+  footer .footer-container{
+    flex-direction: row;
+    gap: 7rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   footer .footer-links ul{
     gap: 2rem;
     align-items: center;
-}
-
-
+  }
 }
 
