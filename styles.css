@@ -22,8 +22,20 @@ nav{
   font-weight: bold;
 }
 
+.div-nav{
+  padding: 5px 10px;
+  justify-content: space-between;
+}
+
+#nav-brands-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 .navbar-brand img{
-  height: 55px;
+  height: 45px;
 }
 
 .nav-link{
@@ -69,25 +81,34 @@ nav{
   height: fit-content;
 } 
 #hero h1{
-  margin: 1rem 0;
+  width: 516px;
+  margin: auto;
+  margin-bottom: 1.5rem;
+  margin-top: 2rem;
   font-size: 2.5rem;
   font-weight: bold;
   color: #fff;
 }
 
 #hero p{
+  max-width: 516px;
   margin-top: 1rem ;
+  margin: auto;
   font-size: 1.2rem;
   color: #fff;
 }
 
 #carousel-hero{
+  position: relative;
+  top: 0;
   height: 100%;
+  margin-top: 0;
+  overflow: hidden;
 }
 
 #carousel-hero img{
   width: 100%;
-  height: 4500px;
+  height: 450px;
   aspect-ratio: 16/9;
   object-fit: cover;
   border-bottom-left-radius: 16px;
@@ -403,6 +424,9 @@ footer .copy{
 
 /* ESTILOS MAPBOX */
 
+
+/* ESTILOS LG */
+
 @media (min-width: 768px) {
   
   header{
@@ -431,32 +455,24 @@ footer .copy{
     text-align: left;
     width: 50%;
     padding: 0;
-    margin-left: 6rem;
+    margin-left: 5rem;
   } 
 
   #hero h1{
     padding-top: 7rem;
     font-size: 4rem;
   }
-  
 
   #carousel-hero{
-    position: relative;
-    top: -7rem;
     right: 0;
-    width: 700px;
-    height: 90vh;
-    overflow: hidden;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    border-bottom-left-radius: 16px;
-    border-bottom-right-radius: 16px;
+    margin-right: 0;
+    width: 750px;
   }
 
   #carousel-hero img{
-    width: 700px;
+    width: 750px;
     overflow: hidden;
-    height: 90vh;
+    height: 95vh;
     object-fit: cover;
     border-bottom-left-radius: 16px;
     border-bottom-right-radius: 16px;
@@ -480,6 +496,10 @@ footer .copy{
   #eventos{ 
     justify-content: center;
     flex-direction: row;
+    gap: 4.5rem;
+    padding-left: 0;
+    padding-right: 0;
+    overflow: hidden;
   }
 
    .carousel {
@@ -515,3 +535,43 @@ footer .copy{
   }
 }
 
+/* ESTILOS MD */
+@media (min-width: 768px) and (max-width: 1138px) {
+
+  #hero #hero-text{
+    margin-left: 5rem;
+  } 
+
+  #nuestra-vision-text{
+    margin: auto;
+  }
+
+
+}
+
+/* BREAKPOINTS ESPECIFICOS */
+
+@media (min-width: 768px) and (max-width: 1111px) {
+
+  #eventos{ 
+    justify-content: center;
+    flex-direction: column;
+  }
+
+}
+
+
+@media (min-width: 768px) and (max-width: 995px) {
+
+  footer .footer-container{
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer .footer-links ul li{
+    width: fit-content;
+  }
+
+}
